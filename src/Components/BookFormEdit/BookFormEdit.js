@@ -20,7 +20,7 @@ class BookFormEdit extends Component {
       book: {
         title: "",
         author: "",
-        genre:"",
+        genre:"Learning & Development",
         review:""
       },
       image: null,
@@ -38,12 +38,12 @@ class BookFormEdit extends Component {
   onChange = (e) => {
     if (this.state.count < 1) {
       let book = {...this.props.currentBook};
-      book[e.target.name] = e.target.value
+      // book[e.target.name] = e.target.value
       this.setState({
         book: book,
         count: 1
       });
-      console.log("initial state onchange", this.state.book)
+      console.log("initial state onchange", this.state)
     }
     else {
       let book = this.state.book;
@@ -137,7 +137,8 @@ class BookFormEdit extends Component {
                       className="form-control"
                       rows="3"
                       placeholder = {this.props.currentBook.review}
-                      value={this.state.book.review ? this.state.book.review : ""}></textarea>
+                      value={this.state.book.review ? this.state.book.review : ""}
+                      onChange={this.onChange}></textarea>
           </div>
           <div className="form-group">
           {this.props.currentBook.reserved ?
